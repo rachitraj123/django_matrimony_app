@@ -23,7 +23,9 @@ def profileviewdetail(request,profile_id):
 
 def profile_delete(request,profile_id):
     profile = Profile.objects.get(id = profile_id)
-    profile.delete()
+    user = request.user
+    if user.email == profile.email:
+        profile.delete()
     return redirect('Matrimony:index')
     
 

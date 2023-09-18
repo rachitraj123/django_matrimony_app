@@ -14,7 +14,7 @@ def email_validator(email):
 
 class contactform(forms.Form):
     name = forms.CharField(max_length=100)
-    email = forms.CharField(validators=[EmailValidator(),email_validator])
+    email = forms.EmailField(validators=[EmailValidator(),email_validator])
     verifyemail = forms.CharField(validators=[EmailValidator(),email_validator])
     message = forms.CharField(widget=forms.Textarea())
     
